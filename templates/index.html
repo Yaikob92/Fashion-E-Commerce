@@ -705,10 +705,10 @@
             <div class="product-card">
               <div class="product-image">
                 <span class="badge">Sale</span>
-                <img src="{{product.image.url}}" alt="Product" class="img-fluid main-img">
-                <img src="{% static 'img/product/product-1-variant.webp' %}" alt="Product Hover" class="img-fluid hover-img">
+                <a href="{{product.get_url }}" class="img-wrap"><img src="{{product.image.url}}" alt="Product" class="img-fluid main-img"></a>
+                <a href="{{product.get_url }}" class="title"><img src="{{product.image.url}}" alt="Product Hover" class="img-fluid hover-img"></a>
                 <div class="product-overlay">
-                  <a href="cart.html" class="btn-cart"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                  <a href="{{ product.get_url }}" class="btn-cart"><i class="bi bi-info-circle"></i> Product Detail </a>
                   <div class="product-actions">
                     <a href="#" class="action-btn"><i class="bi bi-heart"></i></a>
                     <a href="#" class="action-btn"><i class="bi bi-eye"></i></a>
@@ -717,7 +717,7 @@
                 </div>
               </div>
               <div class="product-info">
-                <h5 class="product-title"><a href="product-details.html">{{product.product_name}}</a></h5>
+                <h5 class="product-title"><a href="{{product.get_url}}">{{product.product_name}}</a></h5>
                 <div class="product-price">
                   <span class="current-price">${{product.price}}</span>
                   <span class="old-price">$129.99</span>
@@ -737,7 +737,7 @@
         </div>
         <!-- End Product Item -->
         <div class="text-center mt-5" data-aos="fade-up">
-          <a href="category.html" class="view-all-btn">View All Products <i class="bi bi-arrow-right"></i></a>
+          <a href="{% url 'category' %}" class="view-all-btn">View All Products <i class="bi bi-arrow-right"></i></a>
         </div>
 
       </div>

@@ -7,7 +7,7 @@
       <div class="container">
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li class="current">Category</li>
           </ol>
         </nav>
@@ -397,13 +397,13 @@
                           </button>
                         </div>
                         <div class="add-to-cart-container">
-                          <button type="button" class="add-to-cart-btn">Add to Cart</button>
+                         <a href="{{product.get_url}}"><button type="button" class="add-to-cart-btn">Product Detail </button></a>
                         </div>
                       </div>
                     </div>
                     <div class="product-content">
                       <div class="product-details">
-                        <h3 class="product-title"><a href="product-details.html">{{product.product_name}}</a></h3>
+                        <h3 class="product-title"><a href="{{ product.get_url }}">{{product.product_name}}</a></h3>
                         <div class="product-price">
                           <span>$149.99</span>
                         </div>
