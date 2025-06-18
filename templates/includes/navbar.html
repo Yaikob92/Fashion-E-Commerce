@@ -65,9 +65,9 @@
           </a>
 
           <!-- Search -->
-          <form class="search-form desktop-search-form">
+          <form action="{% url 'search' %}" class="search-form desktop-search-form">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for products...">
+              <input type="text" class="form-control" placeholder="Search for products..." name="keyword">
               <button class="btn search-btn" type="submit">
                 <i class="bi bi-search"></i>
               </button>
@@ -116,8 +116,8 @@
                   </a>
                 </div>
                 <div class="dropdown-footer">
-                  <a href="login.html" class="btn btn-primary w-100 mb-2">Sign In</a>
-                  <a href="register.html" class="btn btn-outline-primary w-100">Register</a>
+                  <a href="{% url 'login' %}" class="btn btn-primary w-100 mb-2">Sign In</a>
+                  <a href="{% url 'register' %}" class="btn btn-outline-primary w-100">Register</a>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@
           <ul>
             <li><a href="{% url 'home' %}" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="{% url 'category' %}">Category</a></li>
+            <li><a href="{% url 'store' %}">Store</a></li>
             <li><a href="{{product.get_url}}">Product Details</a></li>
             <li><a href="{% url 'cart' %}">Cart</a></li>
             <li><a href="checkout.html">Checkout</a></li>
@@ -765,9 +765,9 @@
     <!-- Mobile Search Form -->
     <div class="collapse" id="mobileSearch">
       <div class="container">
-        <form class="search-form">
+        <form action="{% url 'search' %}"class="search-form" method="GET">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for products...">
+            <input type="text" class="form-control" placeholder="Search for products..." name="keyword">
             <button class="btn search-btn" type="submit">
               <i class="bi bi-search"></i>
             </button>

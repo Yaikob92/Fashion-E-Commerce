@@ -75,14 +75,14 @@
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
                       <label for="firstName">First Name</label>
-                      <input type="text" class="form-control" name="firstName" id="firstName" required="" minlength="2" placeholder="John">
+                      <input type="text" class="form-control" name="first_name" id="first_name" required="" minlength="2" placeholder="John">
                     </div>
                   </div>
 
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
                       <label for="lastName">Last Name</label>
-                      <input type="text" class="form-control" name="lastName" id="lastName" required="" minlength="2" placeholder="Doe">
+                      <input type="text" class="form-control" name="last_name" id="last_name" required="" minlength="2" placeholder="Doe">
                     </div>
                   </div>
                 </div>
@@ -106,26 +106,8 @@
                 <div class="form-group mb-4">
                   <label for="confirmPassword">Confirm Password</label>
                   <div class="password-input">
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required="" minlength="8" placeholder="Repeat your password">
+                    <input type="password" class="form-control" name="confirm_password" id="confirmPassword" required="" minlength="8" placeholder="Repeat your password">
                     <i class="bi bi-eye toggle-password"></i>
-                  </div>
-                </div>
-
-                <div class="form-group mb-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter">
-                    <label class="form-check-label" for="newsletter">
-                      Subscribe to our newsletter for exclusive offers and updates
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-group mb-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="terms" id="terms" required="">
-                    <label class="form-check-label" for="terms">
-                      I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                    </label>
                   </div>
                 </div>
                 <div class="text-center mb-4">
@@ -135,7 +117,8 @@
                 <div class="text-center">
                   <p class="mb-0">Already have an account? <a href="#">Sign in</a></p>
                 </div>
-
+                {{form.email.errors}}
+                {{form.non_field_errors}}
               </form>
 
             </div>
