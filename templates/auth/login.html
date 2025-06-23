@@ -61,12 +61,12 @@
                 <h2>Login</h2>
                 <p>Welcome back! Please enter your details</p>
               </div>
-
-             <form method="POST" action="{% url 'register'%}">
+              {% include 'includes/alerts.html' %}
+             <form method="POST" action="{% url 'login' %}">
                {% csrf_token %}
                 <div class="mb-4">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required="" autocomplete="email">
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required="" autocomplete="email">
                 </div>
 
                 <div class="mb-3">
@@ -74,7 +74,7 @@
                     <label for="password" class="form-label">Password</label>
                     <a href="#" class="forgot-link">Forgot password?</a>
                   </div>
-                  <input type="password" class="form-control" id="password" placeholder="Enter your password" required="" autocomplete="current-password">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required="" autocomplete="current-password">
                 </div>
 
                 <div class="mb-4 form-check">
@@ -91,7 +91,7 @@
 
                 <div class="signup-link text-center">
                   <span>Don't have an account?</span>
-                  <a href="#">Sign up for free</a>
+                  <a href="{% url 'register' %}">Sign up for free</a>
                 </div>
               </form>
             </div>

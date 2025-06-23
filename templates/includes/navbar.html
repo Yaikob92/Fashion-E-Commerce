@@ -90,7 +90,7 @@
               </button>
               <div class="dropdown-menu">
                 <div class="dropdown-header">
-                  <h6>Welcome to <span class="sitename">FashionStore</span></h6>
+                  <h6>Welcome to <span class="sitename">{{ user.first_name }}</span></h6>
                   <p class="mb-0">Access account &amp; manage orders</p>
                 </div>
                 <div class="dropdown-body">
@@ -115,10 +115,16 @@
                     <span>Settings</span>
                   </a>
                 </div>
-                <div class="dropdown-footer">
-                  <a href="{% url 'login' %}" class="btn btn-primary w-100 mb-2">Sign In</a>
-                  <a href="{% url 'register' %}" class="btn btn-outline-primary w-100">Register</a>
-                </div>
+                {% if user.is_authenticated %}
+                  <div class="dropdown-footer">
+                    <a href="{% url 'logout' %}" class="btn btn-primary w-100 mb-2">logout</a>
+                  </div>
+                {% else %}
+                  <div class="dropdown-footer">
+                    <a href="{% url 'login' %}" class="btn btn-primary w-100 mb-2">Sign In</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-primary w-100">Register</a>
+                  </div>
+                {% endif %}
               </div>
             </div>
 

@@ -68,21 +68,21 @@
                 <h2>Create Your Account</h2>
                 <p>Sign up to start shopping and enjoy exclusive offers</p>
               </div>
-
+              {% include 'includes/alerts.html' %}
               <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
                       <label for="firstName">First Name</label>
-                      <input type="text" class="form-control" name="first_name" id="first_name" required="" minlength="2" placeholder="John">
+                      {{ form.first_name }}
                     </div>
                   </div>
 
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
                       <label for="lastName">Last Name</label>
-                      <input type="text" class="form-control" name="last_name" id="last_name" required="" minlength="2" placeholder="Doe">
+                      {{ form.last_name }}
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="form-group mb-3">
                   <label for="password">Password</label>
                   <div class="password-input">
-                    <input type="password" class="form-control" name="password" id="password" required="" minlength="8" placeholder="At least 8 characters">
+                    {{ form.password }}
                     <i class="bi bi-eye toggle-password"></i>
                   </div>
                   <small class="password-requirements">
@@ -106,7 +106,7 @@
                 <div class="form-group mb-4">
                   <label for="confirmPassword">Confirm Password</label>
                   <div class="password-input">
-                    <input type="password" class="form-control" name="confirm_password" id="confirmPassword" required="" minlength="8" placeholder="Repeat your password">
+                    {{ form.confirm_password }}
                     <i class="bi bi-eye toggle-password"></i>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="text-center">
-                  <p class="mb-0">Already have an account? <a href="#">Sign in</a></p>
+                  <p class="mb-0">Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
                 </div>
                 {{form.email.errors}}
                 {{form.non_field_errors}}
